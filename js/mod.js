@@ -13,13 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "The beginning of stuff",
+	num: "1.0",
+	name: "The end of stuff",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Changed some random stuff.`
+		-  I finished the TMT tutorial. So this wont be updated. At all.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
