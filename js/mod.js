@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Speed Tree",
+	name: "The test Tree",
 	id: "speed is good not speed is not good",
 	author: "Nathan_90100",
-	pointsName: "speed",
+	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -37,11 +37,13 @@ function canGenPoints(){
 }
 
 // Calculate points/sec!
-function getPointGen() {
+function getPointGen() {	
 	if(!canGenPoints())
 		return new Decimal(0)
-		if (hasUpgrade('p', 11)) gain = gain.times(2)
+		
 	let gain = new Decimal(1)
+	if (hasUpgrade('p', 11)) gain = gain.times(2)
+	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
 	return gain
 }
 
