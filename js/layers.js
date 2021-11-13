@@ -24,5 +24,16 @@ addLayer("s", {
     hotkeys: [
         {key: "s", description: "S: Reset for speed points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades:{
+        11:{
+            title:"Faster",
+            description:"Your speed points will speed up production.",
+            cost: new Decimal(2),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.3)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        }
+    }
 })
