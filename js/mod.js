@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The test Tree",
-	id: "speed is good not speed is not good",
-	author: "Nathan_90100",
+	name: "The ??? Tree",
+	id: "speed is fun",
+	author: "Nathan90100",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -13,13 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "The end of stuff",
+	num: "0.0",
+	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		-  I finished the TMT tutorial. So this wont be updated. At all.`
+		- Added things.<br>
+		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -37,10 +38,10 @@ function canGenPoints(){
 }
 
 // Calculate points/sec!
-function getPointGen() {	
+function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-		
+
 	let gain = new Decimal(1)
 	if (hasUpgrade('p', 11)) gain = gain.times(2)
 	if (hasUpgrade('p', 12)) gain = gain.times(upgradeEffect('p', 12))
