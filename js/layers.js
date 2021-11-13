@@ -14,7 +14,8 @@ addLayer("s", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.7, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
+        let mult = new Decimal(1)
+        if (hasUpgrade('s',12)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -34,6 +35,15 @@ addLayer("s", {
                 return player[this.layer].points.add(1.5).pow(0.3)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        },
+        12:{
+            title:"Need More Speed",
+            description:"You need more speed, we give more speed! Double speed gain, and multiply point gain by 1.5",
+            cost: new Decimal(5),
+            effect() {
+                return 2
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         }
     }
 })
