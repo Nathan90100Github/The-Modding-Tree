@@ -31,7 +31,7 @@ addLayer("s", {
             description:"Your speed points will speed up production.",
             cost: new Decimal(2),
             effect() {
-                return player[this.layer].points.add(1.2).pow(0.3)
+                return player[this.layer].points.add(1.5).pow(0.3)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         }
