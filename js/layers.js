@@ -44,6 +44,11 @@ addLayer("s", {
                 return 2
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        13:{
+            title:"Do it again.",
+            description:"Doing stuff multiple times is fun. Unlock Rebirths.",
+            cost: new Decimal(15)
         }
     }
 })
