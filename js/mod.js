@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Difficulty Tree",
 	id: "difficulties go brr",
 	author: "Nathan_90100",
-	pointsName: "points",
+	pointsName: "wins",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
