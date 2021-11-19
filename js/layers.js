@@ -6,9 +6,7 @@ addLayer("tfd", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    effect:{
-    thislayer,points
-    },
+    effect:(thislayer.points),
     color: "#333333",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "THE FIRST DIFFICULTY", // Name of prestige currency
