@@ -6,13 +6,16 @@ addLayer("tfd", {
         unlocked: true,
 		points: new Decimal(0),
     }},
+    effect:{
+    thislayer,points
+    },
     color: "#333333",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "THE FIRST DIFFICULTY", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1, // Prestige currency exponent
+    exponent: 2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -24,5 +27,10 @@ addLayer("tfd", {
     hotkeys: [
         {key: "t", description: "T: Gain THE FIRST DIFFICULTY", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades:{
+        11:{
+
+        }
+    }
 })
