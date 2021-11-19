@@ -28,7 +28,9 @@ addLayer("tfd", {
     layerShown(){return true},
     upgrades:{
         11:{
-
+            title: "Impossible to lose.",
+            description: "You legit cannot lose to TFD. x5 win gain.",
+            cost: new.Decimal(50)
         }
     }
 })

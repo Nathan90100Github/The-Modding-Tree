@@ -43,7 +43,8 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	player.tfd.points
+	gain.add(player.tfd.points)
+	if (player.tfd,11) gain = gain.mult(5)
 	return gain
 }
 
