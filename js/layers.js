@@ -7,7 +7,7 @@ addLayer("tfd", {
 		points: new Decimal(0),
     }},
     effect() {
-        return 'tfd'.points.add(1).pow(0.25)
+        return player['tfd'].points.add(1).pow(0.25)
     },
     effectDisplay() {
         [this.layer].effect
@@ -60,7 +60,7 @@ addLayer("na", {
 		points: new Decimal(0),
     }},
     effect() {
-        return 'na'.points.add(1).pow(0.5)
+        return player['na'].points.add(1).pow(0.5)
     },
     effectDisplay() {
         [this.layer].effect
