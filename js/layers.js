@@ -31,6 +31,14 @@ addLayer("tfd", {
             title: "Impossible to lose.",
             description: "You legit cannot lose to TFD. x5 win gain.",
             cost: new Decimal(50)
+        },
+        12:{
+            title: "Free wins!",
+            description: "Playing an obby with the difficulty The First Difficulty is just getting free wins. TFD boosts wins.",
+            cost: new Decimal(2000),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.1)
+            }
         }
     }
 })
