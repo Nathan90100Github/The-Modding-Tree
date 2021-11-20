@@ -37,7 +37,7 @@ addLayer("tfd", {
             description: "Playing an obby with the difficulty The First Difficulty is just getting free wins. TFD boosts wins.",
             cost: new Decimal(2000),
             effect() {
-                return player[this.layer].points.add(1).pow(0.1)
+                return player[this.layer].points.add(1).pow(0.2)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         }
