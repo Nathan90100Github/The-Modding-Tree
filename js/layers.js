@@ -7,7 +7,7 @@ addLayer("tfd", {
 		points: new Decimal(0),
     }},
     effect() {
-        (this.layer.points).pow(0.25)
+        (this.layer).points.pow(0.25)
     },
     effectDisplay() {
         [this.layer].effect
@@ -60,7 +60,7 @@ addLayer("na", {
 		points: new Decimal(0),
     }},
     effect() {
-        (this.layer.points).pow(0.5)
+        (this.layer).points.pow(0.5)
     },
     effectDisplay() {
         [this.layer].effect
