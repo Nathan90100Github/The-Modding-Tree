@@ -43,7 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	
+	if (hasUpgrade('tfd',11)) gain = gain.times(5)
 	
 	return gain
 }
