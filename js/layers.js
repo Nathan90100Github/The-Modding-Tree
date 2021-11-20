@@ -9,9 +9,7 @@ addLayer("tfd", {
     effect() {
         return player['tfd'].points.add(1).pow(0.25)
     },
-    effectDisplay() {
-        [this.layer].effect
-    },
+    effectDisplay() { return format(Effect('tfd'))+"x multiplier to wins." },
     color: "#333333",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "THE FIRST DIFFICULTY", // Name of prestige currency
@@ -62,9 +60,7 @@ addLayer("na", {
     effect() {
         return player['na'].points.add(1).pow(0.5)
     },
-    effectDisplay() {
-        [this.layer].effect
-    },
+    effectDisplay() { return format(Effect('na'))+"x multiplier to wins." },
     color: "#883388",
     requires: new Decimal(10000), // Can be a function that takes requirement increases into account
     resource: "N/A", // Name of prestige currency
