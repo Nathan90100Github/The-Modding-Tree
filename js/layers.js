@@ -38,7 +38,8 @@ addLayer("tfd", {
             cost: new Decimal(2000),
             effect() {
                 return player[this.layer].points.add(1).pow(0.1)
-            }
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         }
     }
 })
