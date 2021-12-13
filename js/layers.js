@@ -9,7 +9,7 @@ addLayer("g", {
     color: "#9BB0F4",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "games", // Name of prestige currency
-    baseResource: "points", // Name of resource prestige is based on
+    baseResource: "gamers", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
@@ -46,9 +46,41 @@ addLayer("g", {
             description:"Pac-Man is one of the most well known arcade games. Games divide Games requirement.",
             cost: new Decimal(3),
             effect() {
-                return player[this.layer].points.add(1).pow(0.05).add(0.1)
-          },
+                return player[this.layer].points.add(1).pow(0.3).add(0.1)
+           },
           effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+        },
+        14:{
+            title:"Donkey Kong",
+            description:"An arcade game which added 2 very well known video game characters: Donkey Kong and Mario. Gamers boost Gamers gain.",
+            cost: new Decimal(6),
+            effect() {
+                return player.points.add(1).pow(0.4).add(0.25)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         }
-    }
+    },
+    milestones:{
+        10:{
+            requirementDescription: "5 Games Required",
+            effectDescription: "Gamers are multiplied by 1.25 for every milestone you get.",
+        
+            done() { 
+                return player.g.points.gt(4.5);
+            },
+        
+        },
+        20:{
+            requirementDescription: "11 Games Required",
+            effectDescription: "You can bulk buy Games.",
+        
+            done() { 
+                return player.g.points.gt(10.5);
+            },
+        
+        },
+    },
 })
+if (hasMilestone('g',20)) {
+    bulkBuy('g')
+}
