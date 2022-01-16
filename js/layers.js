@@ -39,7 +39,8 @@ addLayer("g", {
         12:{
             title:"Pong",
             description:"Pong is a very know game, while also being very old. Double Gamers gain.",
-            cost: new Decimal(1)
+            cost: new Decimal(1),
+            
         },
         13:{
             title:"Pac-Man",
@@ -84,5 +85,8 @@ addLayer("g", {
                 return player.g.points.gt(10.5);
             },
         },
+    },
+    canBuyMax() {
+        return (hasMilestone('g',10))
     },
 })
