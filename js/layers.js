@@ -56,12 +56,13 @@ addLayer("g", {
             cost: new Decimal(6),
             effect() {
                 return player.points.add(1).pow(0.4).add(0.25)
+                
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         15:{
             title:"Space Invaders",
-            description:"idk what to say about this game it's just very cool but very hard... Gain a boost to all previous upgrade effects(if they have scaling effects).",
+            description:"idk what to say about this game it's just very cool but very hard... Gain a boost to all previous upgrade effects(if their effect isn't a set amount).",
             cost: new Decimal(10)
         }
     },
