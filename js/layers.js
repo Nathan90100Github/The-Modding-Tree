@@ -58,6 +58,11 @@ addLayer("g", {
                 return player.points.add(1).pow(0.4).add(0.25)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        },
+        15:{
+            title:"Space Invaders",
+            description:"idk what to say about this game it's just very cool but very hard... Gain a boost to all previous upgrade effects(if they have scaling effects).",
+            cost: new Decimal(10)
         }
     },
     milestones:{
@@ -77,10 +82,6 @@ addLayer("g", {
             done() { 
                 return player.g.points.gt(10.5);
             },
-        
         },
     },
 })
-if (hasMilestone('g',20)) {
-    bulkBuy('g')
-}
