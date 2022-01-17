@@ -32,7 +32,8 @@ addLayer("g", {
             description:"It's a normal day in the 70's, and one of the first video games is done developping. Give Games an effect.",
             cost: new Decimal(0),
             effect() {
-                  return player[this.layer].points.add(1).pow(0.2)
+                if (hasUpgrade('g',15)) return player[this.layer].points.add(1).pow(0.5).pow(upgradeEffect('g',15))
+                else return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -40,14 +41,19 @@ addLayer("g", {
             title:"Pong",
             description:"Pong is a very know game, while also being very old. Double Gamers gain.",
             cost: new Decimal(1),
-            
+            effect() {
+                if (hasUpgrade('g',15)) return new Decimal(2).pow(upgradeEffect('g',15))
+                else return new Decimal(2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         13:{
             title:"Pac-Man",
             description:"Pac-Man is one of the most well known arcade games. Games divide Games requirement.",
             cost: new Decimal(3),
             effect() {
-                return player[this.layer].points.add(1).pow(0.3).add(0.1)
+                if (hasUpgrade('g',15)) return player[this.layer].points.add(1).pow(0.5).add(0.1).pow(upgradeEffect('g',15))
+                else return player[this.layer].points.add(1).pow(0.5).add(0.1)
            },
           effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
         },
@@ -56,15 +62,20 @@ addLayer("g", {
             description:"An arcade game which added 2 very well known video game characters: Donkey Kong and Mario. Gamers boost Gamers gain.",
             cost: new Decimal(6),
             effect() {
-                return player.points.add(1).pow(0.4).add(0.25)
+                if (hasUpgrade('g',15)) return player.points.add(1).pow(0.4).add(0.25).pow(upgradeEffect('g',15))
+                else return player.points.add(1).pow(0.4).add(0.25)
                 
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         15:{
             title:"Space Invaders",
-            description:"idk what to say about this game it's just very cool but very hard... Gain a boost to all previous upgrade effects(if their effect isn't a set amount).",
-            cost: new Decimal(10)
+            description:"idk what to say about this game it's just very cool but very hard... Power all previous upgrade's effect based on upgrades bought in this layer.",
+            cost: new Decimal(10),
+            effect() {
+                return Decimal.pow(player.g.upgrades.length, 0.2)
+            },
+            effectDisplay() { return "^"+format(upgradeEffect(this.layer, this.id)) }
         }
     },
     milestones:{
@@ -87,6 +98,6 @@ addLayer("g", {
         },
     },
     canBuyMax() {
-        return (hasMilestone('g',10))
+        return (hasMilestone('g',20))
     },
 })
